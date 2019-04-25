@@ -1,0 +1,52 @@
+.PHONY: all clean
+
+CC := gcc
+BINDIR := bin
+EXEC := rpl
+SRCS := $(wildcard *.c)
+OBJS := $(addprefix $(BINDIR)/,$(subst .c,.o,$(SRCS)))
+CFLAGS := -D_DEFAULT_SOURCE -Wall -Wextra -pedantic -Werror -O0 -std=c99 -g
+LDFLAGS := -g
+
+all: $(BINDIR) $(EXEC)
+
+$(EXEC): $(OBJS)
+	$(CC) $(LDFLAGS) -o $@ $^
+
+$(BINDIR)/c_funcs_default.o: c_funcs_default.c rpl.h
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BINDIR)/main.o: main.c rpl.h
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BINDIR)/rpl_add.o: rpl_add.c rpl.h
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BINDIR)/rpl_eval.o: rpl_eval.c rpl.h
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BINDIR)/rpl_free_top.o: rpl_free_top.c rpl.h
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BINDIR)/rpl_get_operand.o: rpl_get_operand.c rpl.h
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BINDIR)/rpl_increase_stack.o: rpl_increase_stack.c rpl.h
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BINDIR)/rpl_mul.o: rpl_mul.c rpl.h
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BINDIR)/rpl_parse.o: rpl_parse.c rpl.h
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# Regel für $(BINDIR)/rpl_print.o fehlt!
+
+$(BINDIR)/rpl_push_result.o: rpl_push_result.c rpl.h
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BINDIR):
+	mkdir -p $(BINDIR)
+
+clean:
+	rm -f $(BINDIR)/*.o $(EXEC)
