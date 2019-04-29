@@ -13,9 +13,6 @@ all: $(BINDIR) $(EXEC)
 $(EXEC): $(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $^
 
-$(BINDIR)/%.o: %.c rpl.h
-	$(CC) $(CFLAGS) -c -o $@ $<
-
 $(BINDIR)/c_funcs_default.o: c_funcs_default.c rpl.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 

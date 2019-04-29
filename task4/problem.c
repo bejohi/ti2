@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// compile with: gcc -Wall -Wextra -pedantic -Werror -std=c99 -o problem4 problem.c
+
 enum num_attr {
 	NO_MULTIPLE_OF_TWO_OR_THREE,
 	MULTIPLE_OF_TWO_ONLY,
@@ -28,6 +30,19 @@ int main(void)
 {
 	for (unsigned i = 0; i < 16; i++) {
 		/* Code goes here */
+		if(i%6==0){
+			print_line(i,MULTIPLE_OF_TWO_AND_THREE);
+			continue;
+		}
+		if(i%3==0){
+			print_line(i,MULTIPLE_OF_THREE_ONLY);
+			continue;
+		}
+		if(i%2==0){
+			print_line(i,MULTIPLE_OF_TWO_ONLY);
+			continue;
+		}
+		print_line(i,NO_MULTIPLE_OF_TWO_OR_THREE);
 	}
 	return EXIT_SUCCESS;
 }
