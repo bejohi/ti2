@@ -39,6 +39,9 @@ struct item {
 
 extern const struct c_func rpl_add;
 extern const struct c_func rpl_mul;
+extern const struct c_func rpl_sub;
+extern const struct c_func rpl_div;
+extern const struct c_func rpl_pow;
 
 extern const struct c_func **c_funcs_default;
 
