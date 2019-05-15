@@ -1,0 +1,14 @@
+# ./pthreads >> result.txt
+Calculations took 1116663655ns
+Calculations took 1119974271ns
+Calculations took 1119215185ns
+Calculations took 1113177225ns
+Calculations took 1115461250ns
+Calculations took 1115566610ns
+Calculations took 1114790549ns
+Calculations took 1113220084ns
+Calculations took 1114934124ns
+Calculations took 1115366985ns
+Calculations took 1115205047ns
+Calculations took 1115746730ns
+Calculations took 1114633505ns
